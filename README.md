@@ -73,7 +73,7 @@ Open http://localhost:8501 and start creating music!
 ## 📁 Project Structure
 
 ```
-music/
+foxdot-composer/
 ├── main.py                     # Entry point (CLI)
 ├── requirements.txt            # Python dependencies
 ├── README.md                   # This file
@@ -177,7 +177,7 @@ The UI updates in real-time showing thinking, tool calls, and responses as they 
 - Check audio output settings in SuperCollider
 
 **Streamlit errors:**
-- Make sure you're in the `music/` directory
+- Make sure you're in the `foxdot-composer/` directory
 - Use: `streamlit run src/ui/app.py`
 
 ## 🤝 Contributing
