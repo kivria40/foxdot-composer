@@ -1,6 +1,6 @@
 # 🎹 FoxDot AI Music Agent
 
-An AI-powered live coding music agent that uses Google Gemini 2.5 with function calling to create, modify, and evolve music in real-time using FoxDot and SuperCollider.
+Create music with AI using natural language. Generate and live code music using Google Gemini and FoxDot, with real-time streaming, AI thinking visualization, and auto-execution in SuperCollider.
 
 ![Python](https://img.shields.io/badge/Python-3.9+-blue)
 ![Gemini](https://img.shields.io/badge/Gemini-2.5%20Flash-orange)
@@ -8,201 +8,192 @@ An AI-powered live coding music agent that uses Google Gemini 2.5 with function 
 
 ## ✨ Features
 
+### 🎨 Beautiful Streamlit UI
+- **Real-time Streaming** - See AI responses stream in character by character
+- **Thinking Visualization** - Watch the AI's reasoning process unfold
+- **Tool Call Indicators** - Live function call execution with code preview
+- **Music State Panel** - Live view of BPM, scale, root, and active layers
+
 ### 🤖 AI-Powered Music Creation
 - **Natural Language Interface** - Describe music in plain English
+- **Genre Understanding** - Knows house, techno, lo-fi, hip-hop, ambient, and more
 - **Intelligent Layering** - AI maintains context of what's playing
-- **Genre Understanding** - Knows house, techno, lo-fi, ambient, and more
 - **Continuous Evolution** - Build and modify compositions layer by layer
 
-### 🎨 Beautiful Streamlit UI
-- **Streaming Responses** - See AI responses in real-time
-- **Thinking Indicator** - Watch the AI reason about your request
-- **Tool Call Visualization** - See function calls as they happen
-- **Music State Panel** - Live view of tempo, scale, and layers
-
-### 🧠 Smart Context Management
-- **Full Conversation History** - AI remembers the entire session
-- **Context Consolidation** - Automatic summarization when context gets large
-- **Session Persistence** - Save and load your compositions
-
 ### 🎵 FoxDot Integration
+- **Global Environment** - Shared FoxDot state like the original working code
+- **Auto-execution** - Code runs immediately in SuperCollider (default ON)
 - **50+ Synths** - Full knowledge of FoxDot synthesizers
-- **Sample Library** - All drum samples and characters
-- **Effects Chain** - Reverb, filters, delay, and more
-- **Scales & Modes** - Major, minor, pentatonic, blues, and exotic scales
+- **Effects & Scales** - Complete access to FoxDot's musical capabilities
 
 ## 🚀 Quick Start
 
 ### 1. Install Dependencies
 
 ```bash
-cd music
 pip install -r requirements.txt
 ```
 
 ### 2. Set API Key
 
-```powershell
-# Windows PowerShell
-$env:GOOGLE_API_KEY = "your-api-key-here"
+```bash
+# Set environment variable
+export GOOGLE_API_KEY="your-api-key-here"
 
-# Or create a .env file
-echo "GOOGLE_API_KEY=your-api-key-here" > .env
+# Or enter it directly in the Streamlit UI
 ```
 
 Get your API key from [Google AI Studio](https://aistudio.google.com/apikey).
 
-### 3. Run the Agent
+### 3. Setup SuperCollider & FoxDot
 
-**Option A: Beautiful Web UI (Recommended)**
+**Install SuperCollider:**
+- Download from [supercollider.github.io](https://supercollider.github.io/downloads)
+
+**Start SuperCollider and run:**
+```supercollider
+FoxDot.start
+```
+
+**Wait for:** `FoxDot Quark ready!` message
+
+### 4. Run the Streamlit UI
+
+```bash
+streamlit run src/ui/app.py
+```
+
+Or use the main.py launcher:
 ```bash
 python main.py --ui
 ```
 
-**Option B: Terminal Interface**
-```bash
-python main.py
-```
-
-**Option C: Demo Mode (No FoxDot Required)**
-```bash
-python main.py --demo
-```
+Open http://localhost:8501 and start creating music!
 
 ## 📁 Project Structure
 
 ```
 music/
-├── main.py                     # Main entry point
-├── requirements.txt            # Dependencies
+├── main.py                     # Entry point (CLI)
+├── requirements.txt            # Python dependencies
 ├── README.md                   # This file
+├── .gitignore                  # Git ignore rules
 │
-├── src/
-│   ├── core/                   # Core agent logic
-│   │   ├── agent.py            # Main FoxDot Agent
-│   │   ├── streaming_agent.py  # Streaming with thinking support
-│   │   ├── session.py          # Session & context management
-│   │   ├── executor.py         # FoxDot code execution
-│   │   ├── functions.py        # Gemini function declarations
-│   │   ├── prompts.py          # System prompts
-│   │   └── knowledge.py        # FoxDot knowledge base
-│   │
-│   └── ui/
-│       └── app.py              # Streamlit web interface
-│
-└── sessions/                   # Saved sessions (auto-created)
+└── src/
+    ├── core/                   # Core logic
+    │   ├── agent.py            # Main agent
+    │   ├── streaming_agent.py  # Streaming support
+    │   ├── session.py          # Session management
+    │   ├── executor.py         # FoxDot execution
+    │   ├── functions.py        # Gemini function declarations
+    │   ├── prompts.py          # System prompts
+    │   └── knowledge.py        # FoxDot knowledge base
+    │
+    └── ui/
+        └── app.py              # Streamlit UI (main interface)
 ```
 
 ## 🎮 Usage Examples
 
-### Creating Music
-```
-You: Create a chill lo-fi beat at 80 BPM
-Agent: *Sets tempo to 80, creates mellow drums and keys*
+### In the Streamlit UI
 
-You: Add a deep bass line
-Agent: *Adds bass layer, maintains drums and keys*
+1. Enter your Google API key in the sidebar
+2. Select your preferred model (gemini-2.5-flash recommended)
+3. Enable auto-execute (default ON)
+4. Type natural language requests:
 
-You: Make it more atmospheric
-Agent: *Adds reverb pads, adjusts existing layers*
+```
+"Create a chill lo-fi beat at 80 BPM"
+→ Sets tempo, creates drums and melody
+
+"Add a deep bass line"
+→ Adds bass layer while keeping existing music
+
+"Make it more atmospheric"
+→ Adds reverb pads, adjusts layers
+
+"Make the drums more complex"
+→ Modifies drum pattern with fills
 ```
 
-### Modifying Music
-```
-You: Make the drums more complex
-You: Add some swing to the beat
-You: Put a filter sweep on the bass
-You: Stop the hi-hats
-```
-
-### Commands
-- `stop` - Stop all music immediately
-- `code` - Show current FoxDot code
-- `state` - Show music state (tempo, scale, layers)
-- `save <name>` - Save session to file
-- `quit` - Exit the agent
+### Available Models
+- **gemini-2.5-flash** - Fast, balanced (recommended)
+- **gemini-2.5-flash-lite** - Faster, lighter
+- **gemini-2.5-pro** - Most capable, slower
 
 ## 🎛️ Available Functions
 
-The AI can use these tools to control music:
+The AI uses these functions to control music:
 
-| Function | Description |
-|----------|-------------|
-| `play_synth` | Create melodic layers (melody, bass, chords, pads) |
-| `play_drums` | Create drum/percussion patterns |
-| `set_tempo` | Change BPM (40-200) |
-| `set_scale` | Set musical scale (major, minor, pentatonic, etc.) |
-| `set_root` | Set key/root note (C, D, E, etc.) |
-| `stop_player` | Stop a specific layer |
-| `stop_all` | Stop all music |
-| `modify_layer` | Adjust existing layer parameters |
-| `execute_code` | Run raw FoxDot code |
-| `get_session_state` | Check current music state |
+| Function | Description | Example |
+|----------|-------------|---------|
+| `play_synth` | Melodic layers (melody, bass, chords, pads) | `p1 >> pluck([0, 2, 4, 7])` |
+| `play_drums` | Drum/percussion patterns | `d1 >> play("x-o-")` |
+| `set_tempo` | Change BPM (40-200) | `Clock.bpm = 120` |
+| `set_scale` | Musical scale | `Scale.default = Scale.minor` |
+| `set_root` | Root note (C-B) | `Root.default = "C"` |
+| `stop_player` | Stop specific layer | `p1.stop()` |
+| `stop_all` | Stop everything | `Clock.clear()` |
 
-## 🎹 FoxDot Setup (Optional)
+### Synths Available
+**Melody:** pluck, charm, bell, keys, soft, glass, star  
+**Bass:** bass, sawbass, dub, jbass, fuzz, growl  
+**Pads:** pads, sinepad, space, soft  
+**Drums:** Use `play()` with pattern characters: `x`=kick, `o`=snare, `-`=hihat
 
-For actual audio output, you need:
+## 🧠 How It Works
 
-1. **SuperCollider** - Download from [supercollider.github.io](https://supercollider.github.io/downloads)
+1. **Natural Language Input** - You describe music in plain English
+2. **AI Thinking** - Gemini reasons about the request (visible in UI)
+3. **Function Calling** - AI calls functions to build FoxDot code
+4. **Code Generation** - FoxDot Python code is created
+5. **Auto-execution** - Code runs in global FoxDot environment
+6. **SuperCollider** - Audio is generated in real-time
+7. **Streaming Response** - AI explains what it did
 
-2. **FoxDot** - Install with pip:
-   ```bash
-   pip install FoxDot
-   ```
-
-3. **Start SuperCollider** - Open SuperCollider and run:
-   ```supercollider
-   FoxDot.start
-   ```
-
-4. **Run Agent in Live Mode**:
-   ```bash
-   python main.py  # Without --demo flag
-   ```
-
-## 🧠 Thinking & Streaming
-
-The agent uses Gemini 2.5's thinking feature to:
-- Break down complex musical requests
-- Plan layer arrangements
-- Reason about genre conventions
-- Consider existing context
-
-In the UI, you can expand the "💭 AI Thinking Process" section to see this reasoning.
-
-## 📊 Context Consolidation
-
-When conversation history gets large, the agent automatically:
-1. Summarizes older conversation turns
-2. Preserves key musical decisions
-3. Keeps recent turns verbatim
-4. Maintains awareness of current state
-
-This ensures the AI stays responsive even in long sessions.
+The UI updates in real-time showing thinking, tool calls, and responses as they stream in.
 
 ## 🎵 Genre Reference
 
 | Genre | BPM | Key Elements |
 |-------|-----|--------------|
-| House | 120-130 | Four-on-floor kick, offbeat hats |
-| Techno | 125-150 | Driving kick, minimal melody |
-| Lo-Fi | 70-90 | Relaxed, bitcrush, room reverb |
-| Ambient | 60-90 | Long sustains, heavy reverb |
-| Drum & Bass | 160-180 | Breakbeats, heavy sub bass |
-| Hip-Hop | 85-115 | Boom bap drums, swing feel |
+| House | 120-130 | Four-on-floor kick, offbeat hats, chord stabs |
+| Techno | 125-150 | Driving kick, minimal melody, filter sweeps |
+| Lo-Fi | 70-90 | Relaxed feel, bitcrush, room reverb, swing |
+| Ambient | 60-90 | Long sustains, heavy reverb, sparse drums |
+| Drum & Bass | 160-180 | Breakbeats, heavy sub bass, fast hats |
+| Hip-Hop | 85-115 | Boom bap drums, swing, piano/keys |
+
+## ⚠️ Troubleshooting
+
+**"SynthDef not found" errors:**
+- Make sure you ran `FoxDot.start` in SuperCollider
+- Wait for "FoxDot Quark ready!" message
+- Restart SuperCollider if needed
+
+**No sound:**
+- Check SuperCollider is running
+- Verify `FoxDot.start` was executed
+- Check audio output settings in SuperCollider
+
+**Streamlit errors:**
+- Make sure you're in the `music/` directory
+- Use: `streamlit run src/ui/app.py`
 
 ## 🤝 Contributing
 
 Contributions welcome! Areas of interest:
-- Additional synth presets
-- Genre-specific patterns
+- Additional genre presets
+- More function tools
 - UI improvements
-- Multi-model support
+- Documentation
 
 ## 📄 License
 
-MIT License - see LICENSE file for details.
+MIT License
 
 ---
 
-Made with 🎵 by AI + Human collaboration
+**Built with:** Google Gemini • FoxDot • SuperCollider • Streamlit
+
+Co-authored-by: Claude (Anthropic)
