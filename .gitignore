@@ -1,0 +1,75 @@
+# Virtual Environment
+.venv/
+venv/
+env/
+ENV/
+.env
+.env.local
+.env.*.local
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+*.sublime-project
+*.sublime-workspace
+
+# Streamlit
+.streamlit/
+streamlit_config.json
+.streamlit_cache/
+
+# Jupyter/IPython
+.ipynb_checkpoints/
+*.ipynb
+
+# FoxDot/SuperCollider
+*.scd
+*.log
+*.sc
+
+# Project specific
+.cache/
+*.tmp
+temp/
+tmp/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Audio files (optional - uncomment if needed)
+# *.wav
+# *.mp3
+# *.flac
+# *.m4a

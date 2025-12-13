@@ -1,11 +1,33 @@
-# AI Music Agent - Dependencies
+# FoxDot AI Music Agent - Dependencies
 # Install with: pip install -r requirements.txt
 
-# Google GenAI SDK (Gemini 2.5)
+# =============================================================================
+# CORE DEPENDENCIES
+# =============================================================================
+
+# Google GenAI SDK (Gemini 2.5 with streaming & thinking)
 google-genai>=1.0.0
 
-# FoxDot for live coding music
-FoxDot>=0.8.0
+# =============================================================================
+# UI DEPENDENCIES  
+# =============================================================================
+
+# Streamlit for beautiful web UI
+streamlit>=1.29.0
+
+# =============================================================================
+# UTILITIES
+# =============================================================================
+
+# Environment variable management
+python-dotenv>=1.0.0
+
+# =============================================================================
+# OPTIONAL: LIVE CODING
+# =============================================================================
+
+# FoxDot for live coding music (optional - agent works in demo mode without it)
+# FoxDot>=0.8.0
 
 # Note: FoxDot requires SuperCollider to be installed separately
 # Download SuperCollider from: https://supercollider.github.io/downloads
