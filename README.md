@@ -190,7 +190,7 @@ Contributions welcome! Areas of interest:
 
 ## 📄 License
 
-MIT License
+MIT — see [LICENSE](LICENSE).
 
 ---
 
