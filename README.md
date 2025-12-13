@@ -3,7 +3,7 @@
 Create music with AI using natural language. Generate and live code music using Google Gemini and FoxDot, with real-time streaming, AI thinking visualization, and auto-execution in SuperCollider.
 
 ![Python](https://img.shields.io/badge/Python-3.9+-blue)
-![Gemini](https://img.shields.io/badge/Gemini-2.5%20Flash-orange)
+![Supercollider](https://img.shields.io/badge/SuperCollider-3.14.1+-orange)
 ![License](https://img.shields.io/badge/License-MIT-green)
 
 ## ✨ Features
