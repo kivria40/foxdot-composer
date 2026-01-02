@@ -1,0 +1,87 @@
+body {
+  background-color: darkgray;
+}
+h2 {
+  font-size: 50px;
+  text-transform: uppercase;
+  text-align: center;
+}
+h3 {
+  font-size: 30px;
+  text-transform: uppercase;
+  text-align: center;
+}
+.todo-aria {
+  background-color: dodgerblue;
+  width: 980px;
+  margin: 0 auto;
+  border: 5px solid rgb(57, 81, 160);
+  padding: 25px;
+  color: rgb(220, 215, 250);
+}
+.todo-title {
+  text-align: center;
+  border-bottom: 2px solid greenyellow;
+  margin-bottom: 20px;
+}
+.todo-title img {
+  border-radius: 150px;
+}
+
+.todo-body .todo-form {
+  text-align: center;
+}
+.todo-form form input {
+  width: 40%;
+  padding: 15px;
+  color: indigo;
+  border-radius: 20px;
+}
+.todo-form form button {
+  padding: 15px;
+  color: rgb(222, 215, 240);
+  border-radius: 20px;
+  background-color: rgb(27, 4, 126);
+}
+
+.todo-task {
+  display: flex;
+  margin-top: 30px;
+}
+.new-todo {
+  width: 50%;
+  background-color: rgb(42, 5, 77);
+  margin-right: 30px;
+}
+.completed-todo {
+  width: 50%;
+  background-color: rgb(42, 5, 77);
+  margin-left: 30px;
+}
+
+.todo-task ul {
+  list-style-type: none;
+  font-size: 25px;
+  margin: 0px;
+  padding: 0px;
+}
+.todo-task ul li {
+  border-bottom: 1px solid rgb(27, 4, 126);
+  margin: 0px 15px;
+  padding: 5px;
+}
+.new-todo ul li {
+  padding: 15px;
+}
+.todo-task ul li input {
+  margin-right: 10px;
+}
+.todo-task ul li button {
+  padding: 10px;
+  margin-left: 20px;
+  border-radius: 10px;
+  background-color: red;
+  color: seashell;
+  font-size: 25px;
+  border: 0px;
+}

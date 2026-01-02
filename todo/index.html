@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="todo-aria">
+      <div class="todo-title">
+        <img src="img/img.jpg" alt="image" />
+        <h2>todo app</h2>
+        <h3>today date</h3>
+      </div>
+      <div class="todo-body">
+        <div class="todo-form">
+          <form action="">
+            <input
+              class="input-box"
+              type="text"
+              placeholder="Write your todo"
+            />
+            <button type="submit" class="Add-task">Add task</button>
+          </form>
+        </div>
+        <div class="todo-task">
+          <div class="new-todo">
+            <h3>new todo</h3>
+            <ul>
+              <li><input type="checkbox" /><span>task one</span></li>
+              <li><input type="checkbox" /><span>task tow</span></li>
+              <li><input type="checkbox" /><span>task three</span></li>
+            </ul>
+          </div>
+          <div class="completed-todo">
+            <h3>completed-todo</h3>
+            <ul>
+              <li><span>task four</span><button>delete</button></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="todo.js"></script>
+  </body>
+</html>
